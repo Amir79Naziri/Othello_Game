@@ -334,17 +334,11 @@ public class GameHandling
                     taws[y][x].printTaw ();
                     System.out.print ("  |");
                 }
-                else if (taws[y][x].getColor ().equals ("white"))
-                {
-                    System.out.print ("  ");
-                    taws[y][x].printTaw ();
-                    System.out.print (" |");
-                }
                 else
                 {
                     System.out.print ("  ");
                     taws[y][x].printTaw ();
-                    System.out.print ("|");
+                    System.out.print (" |");
                 }
             }
             System.out.println ();

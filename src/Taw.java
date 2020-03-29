@@ -23,9 +23,9 @@ public class Taw
     public void printTaw ()
     {
         if (getColor ().equals ("black"))
-            System.out.print ('\u25EF');
+            System.out.print ('\u26AA');
         if (getColor ().equals ("white"))
-            System.out.print ('\u2B24');
+            System.out.print ('\u26AB');
         if (getColor ().equals ("dotted"))
             System.out.print ('\u25CC');
         else
