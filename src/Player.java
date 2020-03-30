@@ -3,12 +3,14 @@ public class Player
     private boolean turn;
     private String tawColor;
     private int points;
+    boolean isMachine;
 
     public Player ()
     {
         this.tawColor = "non-color";
         turn = false;
         points = 0;
+        isMachine = false;
     }
 
     public void setTawColor (String color)
@@ -42,4 +44,14 @@ public class Player
     public int getPoints () {
         return points;
     }
+
+    public boolean isMachine () {
+        return isMachine;
+    }
+
+    public void changeToMachine ()
+    {
+        isMachine = true;
+    }
+
 }

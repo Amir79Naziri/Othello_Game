@@ -28,10 +28,25 @@ public class RandomGame
         }
     }
 
+    private void randomMachine (Player player1, Player player2)
+    {
+        if (randomMaker () == 1)
+            player1.changeToMachine ();
+        else
+            player2.changeToMachine ();
+    }
+
     public void startRandomGame (Player player1 ,Player player2)
     {
         randomColor (player1,player2);
         randomStarter (player1,player2);
+    }
+
+    public void startRandomGameWithMachine (Player player1 ,Player player2)
+    {
+        randomColor (player1,player2);
+        randomStarter (player1,player2);
+        randomMachine (player1,player2);
     }
 
 }

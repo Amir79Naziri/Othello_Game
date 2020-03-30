@@ -1,16 +1,18 @@
-public class GameOnePlayer
+public class GameOnePlayer extends difficulty
 {
 
-    public GameOnePlayer ()
+    public GameOnePlayer (String difficulty)
     {
-        super();
+        super(difficulty);
     }
 
 
-    public void PlayGame ()
+    public void playGame ()
     {
 
     }
+
+
 
 
 }

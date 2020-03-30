@@ -16,7 +16,8 @@ public abstract class difficulty extends Game
 
     abstract public void playGame ();
 
-    public String chooseCommandForMachine (HashSet<HashMap<Coordinate, HashSet<Coordinate>>> suggestions,
+
+    public Coordinate chooseEndForMachine (HashSet<HashMap<Coordinate, HashSet<Coordinate>>> suggestions,
                                          String difficulty)
     {
         HashMap<Coordinate,Integer> paths = new HashMap<> ();
@@ -25,24 +26,48 @@ public abstract class difficulty extends Game
                 for (Coordinate end : sug.get (key))
                     paths.put (end,getGameHandling ().findBegins (end).size ());
 
-
+    if (difficulty.equals ("Easy"))
+        return findLessBegins (paths);
+    else
+        return findBiggerBegins (paths);
     }
 
-    public Coordinate findLessBegins (HashMap<Coordinate,Integer> paths)
+    private  Coordinate findLessBegins (HashMap<Coordinate,Integer> paths)
     {
         int min = 0;
         int counter = 0;
-        for (Coordinate end : paths.keySet ())
-        {
+        for (Coordinate end : paths.keySet ()) {
             if (counter == 0)
                 min = paths.get (end);
-            else
-            {
-                if (paths.get (end) < min)
+            else if (paths.get (end) < min)
                     min = paths.get (end);
-            }
             counter++;
         }
+
+        for (Coordinate end : paths.keySet ())
+            if (paths.get (end).equals (min))
+                return end;
+        return null;
     }
+
+    private Coordinate findBiggerBegins (HashMap<Coordinate,Integer> paths)
+    {
+        int max = 0;
+        int counter = 0;
+        for (Coordinate end : paths.keySet ()) {
+            if (counter == 0)
+                max = paths.get (end);
+            else if (paths.get (end) > max)
+                max = paths.get (end);
+            counter++;
+        }
+
+        for (Coordinate end : paths.keySet ())
+            if (paths.get (end).equals (max))
+                return end;
+        return null;
+    }
+
+
 
 }
