@@ -1,9 +1,7 @@
-public class Game
+public abstract class Game
 {
     private Player player1;
     private Player player2;
-    private GameHandling gameHandling;
-
 
 
     public Game ()
@@ -11,45 +9,25 @@ public class Game
         player1 = new Player ();
         player2 = new Player ();
         startPlay ();
-        gameHandling = new GameHandling (player1,player2);
     }
 
+    public Player getPlayer1 () {
+        return player1;
+    }
 
-    private void startPlay ()
+    public Player getPlayer2 () {
+        return player2;
+    }
+
+    protected void startPlay ()
     {
         RandomGame randomGame = new RandomGame ();
         randomGame.startRandomGame (player1,player2);
     }
 
-    public void playGame ()
-    {
-        Reader reader = new Reader ();
-        int numOfPassed = 0;
-        boolean doublePassed = false;
-        while (stopPlay (doublePassed))
-        {
-            if (gameHandling.hasAnySuggestions ())
-            {
-                gameHandling.showMap ();
-                boolean result = gameHandling.chooseATaw (reader.readALine ());
-                if (result)
-                    changeTurn ();
-                numOfPassed = 0;
-            }
-            else
-            {
-                System.out.println ("passed");
-                numOfPassed++;
-                changeTurn ();
-            }
-            if (numOfPassed >= 2)
-                doublePassed = true;
-        }
-    }
 
-    private boolean stopPlay (boolean doublePassed)
+    protected boolean stopPlay (boolean doublePassed)
     {
-        gameHandling.pointCalculator ();
 
         if (player1.getPoints () + player2.getPoints () == 64 || doublePassed)
         {
@@ -70,7 +48,7 @@ public class Game
         return true;
     }
 
-    private void changeTurn ()
+    protected void changeTurn ()
     {
         if (player1.isTurn ())
         {
@@ -83,4 +61,7 @@ public class Game
             player1.makeTurn ();
         }
     }
+
+
+    abstract public void playGame ();
 }
