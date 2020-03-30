@@ -12,6 +12,7 @@ public abstract class Game
         gameHandling = new GameHandling (player1,player2);
     }
 
+
     public Player getPlayer1 () {
         return player1;
     }
@@ -24,12 +25,12 @@ public abstract class Game
         return gameHandling;
     }
 
+
     protected void startPlay ()
     {
         RandomGame randomGame = new RandomGame ();
         randomGame.startRandomGame (player1,player2);
     }
-
 
     protected boolean stopPlay (boolean doublePassed)
     {

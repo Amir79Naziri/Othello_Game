@@ -225,7 +225,7 @@ public class GameHandling
                 }
     }
 
-    private HashSet<Coordinate> findBegins (Coordinate end)
+    public HashSet<Coordinate> findBegins (Coordinate end)
     {
         HashSet<Coordinate> begins = new HashSet<> ();
         for (HashMap<Coordinate,HashSet<Coordinate>> maps : suggestions ())

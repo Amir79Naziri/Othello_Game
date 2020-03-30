@@ -1,6 +1,16 @@
 public class GameOnePlayer
 {
-    private GameHandling gameHandling;
+
+    public GameOnePlayer ()
+    {
+        super();
+    }
+
+
+    public void PlayGame ()
+    {
+
+    }
 
 
 }
