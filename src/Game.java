@@ -2,13 +2,14 @@ public abstract class Game
 {
     private Player player1;
     private Player player2;
-
+    private GameHandling gameHandling;
 
     public Game ()
     {
         player1 = new Player ();
         player2 = new Player ();
         startPlay ();
+        gameHandling = new GameHandling (player1,player2);
     }
 
     public Player getPlayer1 () {
@@ -17,6 +18,10 @@ public abstract class Game
 
     public Player getPlayer2 () {
         return player2;
+    }
+
+    public GameHandling getGameHandling () {
+        return gameHandling;
     }
 
     protected void startPlay ()
@@ -28,8 +33,9 @@ public abstract class Game
 
     protected boolean stopPlay (boolean doublePassed)
     {
-
-        if (player1.getPoints () + player2.getPoints () == 64 || doublePassed)
+        gameHandling.pointCalculator ();
+        if (player1.getPoints () + player2.getPoints () == 64 || doublePassed ||
+                player1.getPoints () == 0 || player2.getPoints () == 0)
         {
             if (player1.getPoints () > player2.getPoints ())
             {
