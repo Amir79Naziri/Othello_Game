@@ -34,9 +34,4 @@ public class RandomGame
         randomStarter (player1,player2);
     }
 
-    public int randomMaker (int bound)
-    {
-        Random random = new Random();
-        return random.nextInt (bound) + 1;
-    }
 }

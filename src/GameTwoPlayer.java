@@ -1,9 +1,9 @@
-public class GameTwoPlayer extends Game
+public class GameTwoPlayer extends difficulty
 {
 
-    public GameTwoPlayer ()
+    public GameTwoPlayer (String difficulty)
     {
-        super();
+        super(difficulty);
     }
 
 

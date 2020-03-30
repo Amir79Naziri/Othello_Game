@@ -1,33 +1,48 @@
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Objects;
 
-public class difficulty
+public abstract class difficulty extends Game
 {
     private String difficulty;
 
 
     public difficulty (String difficulty)
     {
+        super();
         this.difficulty = difficulty;
     }
 
 
-    public void play ()
+    abstract public void playGame ();
+
+    public String chooseCommandForMachine (HashSet<HashMap<Coordinate, HashSet<Coordinate>>> suggestions,
+                                         String difficulty)
     {
-        if (difficulty.equals ("Easy"))
-        {
+        HashMap<Coordinate,Integer> paths = new HashMap<> ();
+        for (HashMap<Coordinate,HashSet<Coordinate>> sug : suggestions)
+            for (Coordinate key : sug.keySet ())
+                for (Coordinate end : sug.get (key))
+                    paths.put (end,getGameHandling ().findBegins (end).size ());
 
-        }
-        if (difficulty.equals ("Hard"))
-        {
 
-        }
     }
 
-    public String chooseCommandEasy (HashSet<HashMap<Coordinate, HashSet<Coordinate>>> suggestions)
+    public Coordinate findLessBegins (HashMap<Coordinate,Integer> paths)
     {
-
-
+        int min = 0;
+        int counter = 0;
+        for (Coordinate end : paths.keySet ())
+        {
+            if (counter == 0)
+                min = paths.get (end);
+            else
+            {
+                if (paths.get (end) < min)
+                    min = paths.get (end);
+            }
+            counter++;
+        }
     }
 
 }
