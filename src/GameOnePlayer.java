@@ -7,8 +7,16 @@ public class GameOnePlayer extends difficulty
     }
 
 
+    public void startPlay ()
+    {
+        RandomGame randomGame = new RandomGame ();
+        randomGame.startRandomGameWithMachine (getPlayer1 (),getPlayer2 ());
+    }
+
+
     public void playGame ()
     {
+        System.out.println (getPlayer1 ().isMachine () + " / " + getPlayer2 ().isMachine ());
         Reader reader = new Reader ();
         int numOfPassed = 0;
         boolean doublePassed = false;
@@ -19,7 +27,7 @@ public class GameOnePlayer extends difficulty
                 getGameHandling ().showMap ();
                 if (getPlayer1 ().isTurn ())
                 {
-                    if (getPlayer1 ().isMachine)
+                    if (getPlayer1 ().isMachine ())
                     {
                         boolean result = getGameHandling ().chooseATaw (chooseEndForMachine ());
                         if (result)
@@ -32,9 +40,9 @@ public class GameOnePlayer extends difficulty
                             changeTurn ();
                     }
                 }
-                if (getPlayer2 ().isTurn ())
+                else
                 {
-                    if (getPlayer2 ().isMachine)
+                    if (getPlayer2 ().isMachine ())
                     {
                         boolean result = getGameHandling ().chooseATaw (chooseEndForMachine ());
                         if (result)
