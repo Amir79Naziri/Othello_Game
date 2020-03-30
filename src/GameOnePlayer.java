@@ -28,7 +28,10 @@ public class GameOnePlayer extends difficulty
                 {
                     if (getPlayer1 ().isMachine ())
                     {
-                        boolean result = getGameHandling ().chooseATaw (chooseEndForMachine ());
+                        Coordinate end = chooseEndForMachine ();
+                        System.out.println ();
+                        System.out.println (end.backTranslator ());
+                        boolean result = getGameHandling ().chooseATaw (end);
                         if (result)
                             changeTurn ();
                     }
@@ -43,7 +46,10 @@ public class GameOnePlayer extends difficulty
                 {
                     if (getPlayer2 ().isMachine ())
                     {
-                        boolean result = getGameHandling ().chooseATaw (chooseEndForMachine ());
+                        Coordinate end = chooseEndForMachine ();
+                        System.out.println ();
+                        System.out.println (end.backTranslator ());
+                        boolean result = getGameHandling ().chooseATaw (end);
                         if (result)
                             changeTurn ();
                     }
