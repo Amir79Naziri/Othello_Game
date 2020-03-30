@@ -16,7 +16,6 @@ public class GameOnePlayer extends difficulty
 
     public void playGame ()
     {
-        System.out.println (getPlayer1 ().isMachine () + " / " + getPlayer2 ().isMachine ());
         Reader reader = new Reader ();
         int numOfPassed = 0;
         boolean doublePassed = false;

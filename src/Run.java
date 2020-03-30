@@ -6,7 +6,7 @@ public class Run
     public static void main (String[] args) {
 
         System.out.println ("Othello Game");
-        System.out.println ("Please Choose the type of Game : \n1) One Player\n2) Two Player");
+        System.out.println ("Please Choose the type of Game  \n1) One Player\n2) Two Player");
         Scanner input = new Scanner (System.in);
 
         int choose = input.nextInt ();
@@ -14,7 +14,7 @@ public class Run
         if (choose == 1)
         {
             Scanner dif = new Scanner (System.in);
-            System.out.println ("Please Choose the Difficulty of Game : \n1) Easy\n2) Hard");
+            System.out.println ("Please Choose the Difficulty of Game  \n1) Easy\n2) Hard");
             int ch = dif.nextInt ();
             if (ch == 1)
             {
