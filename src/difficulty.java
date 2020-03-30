@@ -1,6 +1,5 @@
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Objects;
 
 public abstract class difficulty extends Game
 {
@@ -17,11 +16,10 @@ public abstract class difficulty extends Game
     abstract public void playGame ();
 
 
-    public Coordinate chooseEndForMachine (HashSet<HashMap<Coordinate, HashSet<Coordinate>>> suggestions,
-                                         String difficulty)
+    public Coordinate chooseEndForMachine ()
     {
         HashMap<Coordinate,Integer> paths = new HashMap<> ();
-        for (HashMap<Coordinate,HashSet<Coordinate>> sug : suggestions)
+        for (HashMap<Coordinate,HashSet<Coordinate>> sug : getGameHandling ().suggestions ())
             for (Coordinate key : sug.keySet ())
                 for (Coordinate end : sug.get (key))
                     paths.put (end,getGameHandling ().findBegins (end).size ());
@@ -67,7 +65,5 @@ public abstract class difficulty extends Game
                 return end;
         return null;
     }
-
-
 
 }

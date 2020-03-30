@@ -33,5 +33,4 @@ public class GameTwoPlayer extends Game
         }
     }
 
-
 }

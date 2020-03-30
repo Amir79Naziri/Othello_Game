@@ -30,7 +30,7 @@ public class GameHandling
 
 
 
-    private HashSet<HashMap<Coordinate,HashSet<Coordinate>>> suggestions ()
+    public HashSet<HashMap<Coordinate,HashSet<Coordinate>>> suggestions ()
     {
         HashSet<HashMap<Coordinate,HashSet<Coordinate>>> totalSuggestion = new HashSet<> ();
         String sameColor;
