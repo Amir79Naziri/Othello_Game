@@ -67,8 +67,4 @@ public class GameOnePlayer extends difficulty
                 doublePassed = true;
         }
     }
-
-
-
-
 }
