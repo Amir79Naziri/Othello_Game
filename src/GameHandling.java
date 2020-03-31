@@ -376,13 +376,21 @@ public class GameHandling
     public void showMap ()
     {
         showSuggestionsColor ();
+
+        System.out.println ("player1 ( " +  stringToShape (player1.getTawColor ()) +
+                " ) points :" + player1.getPoints ()
+                + "     player2 ( " + stringToShape (player2.getTawColor ()) +
+                " ) points :" + player2.getPoints () + "\n");
+
         if (player1.isTurn ())
-            System.out.println ("player1 " + "( " + player1.getTawColor () + " )" + " turn");
+            System.out.println ("player1 " + "( " + stringToShape (player1.getTawColor ()) + " )"
+                    + " turn");
         else
-            System.out.println ("player2 " + "( " + player2.getTawColor () + " )" + " turn");
-        System.out.println ("\n");
-        System.out.println ("     A     B     C     D     E     F     G     H  ");
-        System.out.println ("   _______________________________________________");
+            System.out.println ("player2 " + "( " + stringToShape (player2.getTawColor ()) + " )"
+                    + " turn");
+
+        System.out.println ("      A     B     C     D     E     F     G     H  ");
+        System.out.println ("   ___________________________________________________");
 
         for (int y = 0; y < 8; y++)
         {
@@ -404,10 +412,23 @@ public class GameHandling
                 }
             }
             System.out.println ();
-            System.out.println ("   _______________________________________________");
+            System.out.println ("   ___________________________________________________");
         }
 
         clearSuggestionsColor ();
+    }
+
+    /**
+     * change color name to unicode
+     * @param color color
+     * @return unicode
+     */
+    private char stringToShape (String color)
+    {
+        if (color.equals ("black"))
+            return '\u26AA';
+        else
+            return '\u26AB';
     }
 
     /**
