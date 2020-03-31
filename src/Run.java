@@ -25,6 +25,7 @@ public class Run
             {
                 Game game = new GameOnePlayer ("Easy");
                 game.playGame ();
+                return;
             }
             if (ch == 2)
             {

@@ -414,7 +414,7 @@ public class GameHandling
      * @param color color
      * @return unicode
      */
-    private char stringToShape (String color)
+    protected char stringToShape (String color)
     {
         if (color.equals ("black"))
             return '\u26AA';
