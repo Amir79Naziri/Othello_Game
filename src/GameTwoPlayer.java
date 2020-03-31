@@ -43,6 +43,7 @@ public class GameTwoPlayer extends Game
             if (numOfPassed >= 2)
                 doublePassed = true;
         }
+        getGameHandling ().showMap ();
     }
 
 }

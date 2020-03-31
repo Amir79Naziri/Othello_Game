@@ -35,8 +35,8 @@ public class Run
             else
             {
                 System.out.println ("Wrong input");
-                return;
             }
+            return;
         }
         if (choose == 2)
         {
