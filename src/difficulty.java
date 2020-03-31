@@ -2,11 +2,21 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 
+/**
+ * this class is for having difficultyLevel in onePlayer game
+ *
+ * @author Amir Naziri
+ * @version 1.0
+ */
 public abstract class difficulty extends Game
 {
-    private String difficulty;
+    private String difficulty; // type of difficulty Easy or Hard
 
 
+    /**
+     * creates a new difficulty instance
+     * @param difficulty input difficulty Easy or Hard
+     */
     public difficulty (String difficulty)
     {
         super();
@@ -14,9 +24,15 @@ public abstract class difficulty extends Game
     }
 
 
+    /**
+     * play Game
+     */
     abstract public void playGame ();
 
-
+    /**
+     * finds the chosen Taw coordination related to difficulty
+     * @return Coordinate of chosen Taw
+     */
     public Coordinate chooseEndForMachine ()
     {
         HashMap<Coordinate, Integer> mapOfEndToLength = new HashMap<> ();
@@ -31,24 +47,40 @@ public abstract class difficulty extends Game
             return findBiggerLength (mapOfEndToLength);
     }
 
-    private  Coordinate findLessLength (HashMap<Coordinate,Integer> mapOfEndToNumOfBegins)
+    /**
+     * finds the minimum of number of taw in path of one end to begins
+     * @param mapOfEndToLength map of ends to number of taws to begins
+     * @return coordinate of end which has less number of taws to it's begins
+     */
+    private  Coordinate findLessLength (HashMap<Coordinate,Integer> mapOfEndToLength)
     {
-        int min = Collections.min (mapOfEndToNumOfBegins.values ());
-        for (Coordinate end : mapOfEndToNumOfBegins.keySet ())
-            if (mapOfEndToNumOfBegins.get (end).equals (min))
+        int min = Collections.min (mapOfEndToLength.values ());
+        for (Coordinate end : mapOfEndToLength.keySet ())
+            if (mapOfEndToLength.get (end).equals (min))
                 return end;
         return null;
     }
 
-    private Coordinate findBiggerLength (HashMap<Coordinate,Integer> mapOfEndToNumOfBegins)
+    /**
+     * finds the maximum of number of taw in path of one end to begins
+     * @param mapOfEndToLength map of ends to number of taws to begins
+     * @return coordinate of end which has more number of taws to it's begins
+     */
+    private Coordinate findBiggerLength (HashMap<Coordinate,Integer> mapOfEndToLength)
     {
-        int max = Collections.max (mapOfEndToNumOfBegins.values ());
-        for (Coordinate end : mapOfEndToNumOfBegins.keySet ())
-            if (mapOfEndToNumOfBegins.get (end).equals (max))
+        int max = Collections.max (mapOfEndToLength.values ());
+        for (Coordinate end : mapOfEndToLength.keySet ())
+            if (mapOfEndToLength.get (end).equals (max))
                 return end;
         return null;
     }
 
+    /**
+     * find the number of taws in path of end to it's begins
+     * @param end chosen end
+     * @param begins set of begins
+     * @return number of Taws
+     */
     private int findLength (Coordinate end, HashSet<Coordinate> begins)
     {
         int sum = 0;
@@ -64,5 +96,4 @@ public abstract class difficulty extends Game
         }
         return sum;
     }
-
 }

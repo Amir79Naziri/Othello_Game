@@ -1,19 +1,34 @@
+/**
+ * this class represents a one player Game
+ *
+ * @author Amir Naziri
+ * @version 1.0
+ */
 public class GameOnePlayer extends difficulty
 {
 
+    /**
+     * creates a new One player Game
+     * @param difficulty input difficulty Easy or Hard
+     */
     public GameOnePlayer (String difficulty)
     {
         super(difficulty);
     }
 
 
+    /**
+     * starts a new play with choosing color of players and who is machine
+     */
     public void startPlay ()
     {
         RandomGame randomGame = new RandomGame ();
         randomGame.startRandomGameWithMachine (getPlayer1 (),getPlayer2 ());
     }
 
-
+    /**
+     * play Game
+     */
     public void playGame ()
     {
         Reader reader = new Reader ();

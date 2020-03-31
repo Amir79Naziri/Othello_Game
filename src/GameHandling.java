@@ -1,12 +1,24 @@
 import java.util.HashMap;
 import java.util.HashSet;
 
+/**
+ * Handles the whole rules in game such as suggestions , showing map , choosing Taw , determine points
+ *
+ * @author Amir Naziri
+ * @version 1.0
+ */
 public class GameHandling
 {
-    Player player1;
-    Player player2;
-    Taw [][] taws;
+    Player player1; // player1
+    Player player2; // player2
+    Taw [][] taws; // Taws on board
 
+
+    /**
+     * creates a new Game Handler
+     * @param player1 input player1
+     * @param player2 input player2
+     */
     public GameHandling (Player player1, Player player2)
     {
         taws = new Taw[8][8];
@@ -15,6 +27,10 @@ public class GameHandling
         makeAllTaws ();
     }
 
+
+    /**
+     * creates all Taws on board
+     */
     private void makeAllTaws ()
     {
         for (int y = 0; y < 8; y++)
@@ -28,8 +44,10 @@ public class GameHandling
             }
     }
 
-
-
+    /**
+     * find all suggestions for player who is in turn
+     * @return suggestions in form : set of map of begin Taw to set of suggested ends
+     */
     public HashSet<HashMap<Coordinate,HashSet<Coordinate>>> suggestions ()
     {
         HashSet<HashMap<Coordinate,HashSet<Coordinate>>> totalSuggestion = new HashSet<> ();
@@ -59,6 +77,12 @@ public class GameHandling
         return totalSuggestion;
     }
 
+    /**
+     * find all suggestions for a Taw
+     * @param begin coordinate of begin Taw
+     * @param oppositeColor oppositeColor of player color who is in turn
+     * @return map of begin to set of ends
+     */
     private HashMap<Coordinate, HashSet<Coordinate>> makeSuggestionsForaTaw (Coordinate begin,
                                                                              String oppositeColor)
     {
@@ -134,6 +158,16 @@ public class GameHandling
         suggestions.put (begin,sug);
         return suggestions;
     }
+
+    /**
+     * find ends for begin
+     * @param begin begin Taw
+     * @param dir which direction
+     * @param makeChanges do you want to change colors in passing through a Taw to color to stop
+     * @param colorToStop  which color you want to stop if end input is null
+     * @param end end coordination to stop
+     * @return end coordinate
+     */
     private Coordinate checkInDir (Coordinate begin, int dir,boolean makeChanges,String colorToStop,
                                    Coordinate end)
     {
@@ -194,6 +228,10 @@ public class GameHandling
         return null;
     }
 
+    /**
+     * is there any suggestions for a player at total
+     * @return has any suggestion ?
+     */
     public boolean hasAnySuggestions ()
     {
         for (HashMap<Coordinate, HashSet<Coordinate>> maps : suggestions ())
@@ -205,6 +243,9 @@ public class GameHandling
         return false;
     }
 
+    /**
+     * make suggested Taws color to dotted circle
+     */
     private void showSuggestionsColor ()
     {
         for (HashMap<Coordinate, HashSet<Coordinate>> maps : suggestions ())
@@ -215,6 +256,9 @@ public class GameHandling
                 }
     }
 
+    /**
+     * clear suggested Taws on map
+     */
     private void clearSuggestionsColor ()
     {
         for (HashMap<Coordinate, HashSet<Coordinate>> maps : suggestions ())
@@ -225,6 +269,11 @@ public class GameHandling
                 }
     }
 
+    /**
+     * finds set of begins for input end Taw
+     * @param end end Taw Coordinate
+     * @return set of begins
+     */
     public HashSet<Coordinate> findBegins (Coordinate end)
     {
         HashSet<Coordinate> begins = new HashSet<> ();
@@ -237,6 +286,11 @@ public class GameHandling
         return begins;
     }
 
+    /**
+     * color a path of begins to end which player chose to players color
+     * @param end choosen Taw
+     * @param begins set of begins of chosen Taw
+     */
     private void colorPath (Coordinate end, HashSet<Coordinate> begins)
     {
         String sameColor;
@@ -301,6 +355,11 @@ public class GameHandling
         }
     }
 
+    /**
+     * choosing a Taw
+     * @param end Coordinate of Chosen Taw
+     * @return was it successful ?
+     */
     public boolean chooseATaw (Coordinate end)
     {
         HashSet<Coordinate> begins = findBegins (end);
@@ -311,6 +370,9 @@ public class GameHandling
         return true;
     }
 
+    /**
+     * show map of game on console
+     */
     public void showMap ()
     {
         showSuggestionsColor ();
@@ -348,6 +410,9 @@ public class GameHandling
         clearSuggestionsColor ();
     }
 
+    /**
+     * calculate the points of players
+     */
     public void pointCalculator ()
     {
         int numOfWhite = 0;

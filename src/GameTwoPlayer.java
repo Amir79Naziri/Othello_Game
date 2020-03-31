@@ -1,12 +1,24 @@
+/**
+ * this class represents a new Two player game
+ *
+ * @author Amir Naziri
+ * @version 1.0
+ */
 public class GameTwoPlayer extends Game
 {
 
+    /**
+     * create a new two player game
+     */
     public GameTwoPlayer ()
     {
         super();
     }
 
 
+    /**
+     * play a game
+     */
     public void playGame ()
     {
         Reader reader = new Reader ();

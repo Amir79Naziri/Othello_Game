@@ -1,6 +1,11 @@
-import javax.swing.*;
 import java.util.Scanner;
 
+/**
+ * this class is for running the program
+ *
+ * @author Amir Naziri
+ * @version 1.0
+ */
 public class Run
 {
     public static void main (String[] args) {

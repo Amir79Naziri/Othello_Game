@@ -1,29 +1,54 @@
 import java.util.Objects;
 
+/**
+ * this class is for storing a x and y of a command by changing a command from "I C" to x, y
+ *
+ * @author Amir Naziri
+ * @version 1.0
+ */
 public class Coordinate
 {
-    private int x;
-    private int y;
+    private int x; // X of Coordinate
+    private int y; // Y of Coordinate
 
+
+    /**
+     * creates a Coordinate instance with x = -1, y == -1
+     */
     public Coordinate ()
     {
         x = -1;
         y = -1;
     }
 
+
+    /**
+     * creates a Coordinate instance with input x, y
+     * @param x X of Coordinate
+     * @param y Y of Coordinate
+     */
     public Coordinate(int x, int y)
     {
         this.x = x;
         this.y = y;
     }
 
-
+    /**
+     * sets new value for x, y
+     * @param x X of Coordinate
+     * @param y Y of Coordinate
+     */
     public void setCoordinates (int x, int y)
     {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * Translates a command into x, y
+     * @param command input command
+     * @return if it was successful return true  OW false
+     */
     public boolean translator (String command)
     {
         if (!validCommand (command))
@@ -46,6 +71,10 @@ public class Coordinate
         return true;
     }
 
+    /**
+     * Translate a x ,y into command
+     * @return Command
+     */
     public String backTranslator ()
     {
         if (x == -1 || y == -1)
@@ -67,6 +96,11 @@ public class Coordinate
         return command.toString ();
     }
 
+    /**
+     * is input command valid or not ?
+     * @param command input command
+     * @return if valid returns true   else return false
+     */
     private boolean validCommand (String command)
     {
         if (command != null) {
@@ -85,14 +119,25 @@ public class Coordinate
         else return false;
     }
 
+    /**
+     * @return X of Coordination
+     */
     public int getX () {
         return x;
     }
 
+    /**
+     * @return Y of Coordination
+     */
     public int getY () {
         return y;
     }
 
+    /**
+     * checks equality of two Coordination by checking x and y
+     * @param o input object
+     * @return result of equality
+     */
     @Override
     public boolean equals (Object o) {
         if (this == o) return true;
@@ -102,6 +147,9 @@ public class Coordinate
                 y == that.y;
     }
 
+    /**
+     * @return hashCode for Coordination
+     */
     @Override
     public int hashCode () {
         return Objects.hash (x, y);
