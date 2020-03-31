@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Run
 {
-    public static void main (String[] args) {
+    public static void main (String[] args) throws InterruptedException {
 
         System.out.println ("Othello Game");
         System.out.println ("Please Choose the type of Game  \n1) One Player\n2) Two Player");

@@ -27,7 +27,7 @@ public abstract class difficulty extends Game
     /**
      * play Game
      */
-    abstract public void playGame ();
+    abstract public void playGame () throws InterruptedException;
 
     /**
      * finds the chosen Taw coordination related to difficulty

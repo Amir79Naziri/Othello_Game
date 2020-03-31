@@ -29,8 +29,7 @@ public class GameOnePlayer extends difficulty
     /**
      * play Game
      */
-    public void playGame ()
-    {
+    public void playGame () throws InterruptedException {
         Reader reader = new Reader ();
         int numOfPassed = 0;
         boolean doublePassed = false;
@@ -43,6 +42,7 @@ public class GameOnePlayer extends difficulty
                 {
                     if (getPlayer1 ().isMachine ())
                     {
+                        Thread.sleep (1800);
                         Coordinate end = chooseEndForMachine ();
                         System.out.println ();
                         System.out.println (end.backTranslator ());
@@ -61,6 +61,7 @@ public class GameOnePlayer extends difficulty
                 {
                     if (getPlayer2 ().isMachine ())
                     {
+                        Thread.sleep (1800);
                         Coordinate end = chooseEndForMachine ();
                         System.out.println ();
                         System.out.println (end.backTranslator ());

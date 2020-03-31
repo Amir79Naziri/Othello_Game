@@ -101,5 +101,5 @@ public abstract class Game
     /**
      * play Game
      */
-    abstract public void playGame ();
+    abstract public void playGame () throws InterruptedException;
 }
