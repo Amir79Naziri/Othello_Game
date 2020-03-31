@@ -377,18 +377,6 @@ public class GameHandling
     {
         showSuggestionsColor ();
 
-        System.out.println ("player1 ( " +  stringToShape (player1.getTawColor ()) +
-                " ) points :" + player1.getPoints ()
-                + "     player2 ( " + stringToShape (player2.getTawColor ()) +
-                " ) points :" + player2.getPoints () + "\n");
-
-        if (player1.isTurn ())
-            System.out.println ("player1 " + "( " + stringToShape (player1.getTawColor ()) + " )"
-                    + " turn");
-        else
-            System.out.println ("player2 " + "( " + stringToShape (player2.getTawColor ()) + " )"
-                    + " turn");
-
         System.out.println ("      A     B     C     D     E     F     G     H  ");
         System.out.println ("   ___________________________________________________");
 
@@ -414,7 +402,10 @@ public class GameHandling
             System.out.println ();
             System.out.println ("   ___________________________________________________");
         }
-
+        System.out.println ("\n" + stringToShape (player1.getTawColor ()) +
+                "  points :" + player1.getPoints () +
+                "        "+ stringToShape (player2.getTawColor ()) +
+                "  points :" + player2.getPoints () + "\n");
         clearSuggestionsColor ();
     }
 
