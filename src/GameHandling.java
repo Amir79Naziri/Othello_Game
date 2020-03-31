@@ -402,10 +402,15 @@ public class GameHandling
             System.out.println ();
             System.out.println ("   ___________________________________________________");
         }
-        System.out.println ("\n" + stringToShape (player1.getTawColor ()) +
+        System.out.println ("\n          " + stringToShape (player1.getTawColor ()) +
                 "  points :" + player1.getPoints () +
                 "        "+ stringToShape (player2.getTawColor ()) +
-                "  points :" + player2.getPoints () + "\n");
+                "  points :" + player2.getPoints ());
+
+        if (player1.isTurn ())
+            System.out.println (stringToShape (player1.getTawColor ()) + " turn");
+        else
+            System.out.println (stringToShape (player2.getTawColor ()) + " turn");
         clearSuggestionsColor ();
     }
 
