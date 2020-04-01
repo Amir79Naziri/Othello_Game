@@ -28,7 +28,7 @@ public class GameTwoPlayer extends Game
         {
             if (getGameHandling ().hasAnySuggestions ())
             {
-                getGameHandling ().showMap ();
+                getGameHandling ().showMap (true);
                 boolean result = getGameHandling ().chooseATaw (reader.readALine ());
                 if (result)
                     changeTurn ();

@@ -37,7 +37,7 @@ public class GameOnePlayer extends difficulty
         {
             if (getGameHandling ().hasAnySuggestions ())
             {
-                getGameHandling ().showMap ();
+                getGameHandling ().showMap (true);
                 if (getPlayer1 ().isTurn ())
                 {
                     if (getPlayer1 ().isMachine ())

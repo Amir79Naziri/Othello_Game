@@ -373,7 +373,7 @@ public class GameHandling
     /**
      * show map of game on console
      */
-    public void showMap ()
+    public void showMap (boolean showTurn)
     {
         showSuggestionsColor ();
 
@@ -407,9 +407,9 @@ public class GameHandling
                 "        "+ stringToShape (player2.getTawColor ()) +
                 "  points :" + player2.getPoints ());
 
-        if (player1.isTurn ())
+        if (player1.isTurn () && showTurn)
             System.out.println (stringToShape (player1.getTawColor ()) + " turn");
-        else
+        if (player2.isTurn () && showTurn)
             System.out.println (stringToShape (player2.getTawColor ()) + " turn");
         clearSuggestionsColor ();
     }
