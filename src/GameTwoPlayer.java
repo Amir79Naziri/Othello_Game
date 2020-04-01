@@ -36,6 +36,7 @@ public class GameTwoPlayer extends Game
             }
             else
             {
+                getGameHandling ().showMap (true);
                 System.out.println ("passed");
                 numOfPassed++;
                 changeTurn ();

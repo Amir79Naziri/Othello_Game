@@ -80,6 +80,7 @@ public class GameOnePlayer extends difficulty
             }
             else
             {
+                getGameHandling ().showMap (true);
                 System.out.println ("passed");
                 numOfPassed++;
                 changeTurn ();
