@@ -66,16 +66,19 @@ public abstract class Game
         {
             if (player1.getPoints () > player2.getPoints ())
             {
+                getGameHandling ().showMap ();
                 System.out.println (gameHandling.stringToShape (player1.getTawColor ()) + " Won");
                 return false;
 
             }
             if (player1.getPoints () < player2.getPoints ())
             {
+                getGameHandling ().showMap ();
                 System.out.println (gameHandling.stringToShape (player2.getTawColor ()) + " Won");
             }
             else
             {
+                getGameHandling ().showMap ();
                 System.out.println ("Draw");
             }
             return false;

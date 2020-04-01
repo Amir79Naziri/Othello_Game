@@ -87,6 +87,5 @@ public class GameOnePlayer extends difficulty
             if (numOfPassed >= 2)
                 doublePassed = true;
         }
-        getGameHandling ().showMap ();
     }
 }
