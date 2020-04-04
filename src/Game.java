@@ -47,7 +47,7 @@ public abstract class Game
     /**
      * starts a play with choosing turn and color for each player randomly
      */
-    protected void startPlay ()
+    public void startPlay ()
     {
         RandomGame randomGame = new RandomGame ();
         randomGame.startRandomGame (player1,player2);
@@ -58,7 +58,7 @@ public abstract class Game
      * @param doublePassed is seen double pass
      * @return can program continues ?
      */
-    protected boolean stopPlay (boolean doublePassed)
+    public boolean stopPlay (boolean doublePassed)
     {
         gameHandling.pointCalculator ();
         if (player1.getPoints () + player2.getPoints () == 64 || doublePassed ||
@@ -89,7 +89,7 @@ public abstract class Game
     /**
      * change turn of players
      */
-    protected void changeTurn ()
+    public void changeTurn ()
     {
         if (player1.isTurn ())
         {

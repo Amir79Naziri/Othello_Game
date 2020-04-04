@@ -9,9 +9,9 @@ import java.util.HashSet;
  */
 public class GameHandling
 {
-    Player player1; // player1
-    Player player2; // player2
-    Taw [][] taws; // Taws on board
+    private Player player1; // player1
+    private Player player2; // player2
+    private Taw [][] taws; // Taws on board
 
 
     /**
@@ -419,7 +419,7 @@ public class GameHandling
      * @param color color
      * @return unicode
      */
-    protected char stringToShape (String color)
+    public char stringToShape (String color)
     {
         if (color.equals ("black"))
             return '\u26AA';

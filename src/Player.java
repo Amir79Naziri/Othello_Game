@@ -9,7 +9,7 @@ public class Player
     private boolean turn; // is turn
     private String tawColor; // taw color
     private int points; // points
-    boolean isMachine; // is machine player
+    private boolean isMachine; // is machine player
 
 
     /**
