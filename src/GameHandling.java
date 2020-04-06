@@ -88,8 +88,8 @@ public class GameHandling
     {
         int x = begin.getX ();
         int y = begin.getY ();
-        HashMap<Coordinate,HashSet<Coordinate>> suggestions = new HashMap<> ();
-        HashSet<Coordinate> sug = new HashSet<> ();
+        HashMap<Coordinate,HashSet<Coordinate>> suggestions = new HashMap<> (); // map of a begin to set of sug
+        HashSet<Coordinate> sug = new HashSet<> (); // sets of all suggestions
         if (x - 1 >= 0 && y - 1 >= 0 && taws[y - 1][x - 1] != null &&
                 taws[y - 1][x - 1].getColor ().equals (oppositeColor))
         {
@@ -244,7 +244,7 @@ public class GameHandling
     }
 
     /**
-     * make suggested Taws color to dotted circle
+     * make suggested Taws color to dotted circle on map
      */
     private void showSuggestionsColor ()
     {

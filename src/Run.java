@@ -15,7 +15,7 @@ public class Run
         Scanner input = new Scanner (System.in);
 
         int choose = input.nextInt ();
-
+        // one player
         if (choose == 1)
         {
             Scanner dif = new Scanner (System.in);
@@ -38,6 +38,7 @@ public class Run
             }
             return;
         }
+        // two player
         if (choose == 2)
         {
             Game game = new GameTwoPlayer ();

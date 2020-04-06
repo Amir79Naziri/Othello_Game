@@ -103,6 +103,7 @@ public class Coordinate
      */
     private boolean validCommand (String command)
     {
+        // command is in format of I C  I is number between 1 , 8 and C is A , H
         if (command != null) {
 
             char[] parts = command.trim ().toCharArray ();

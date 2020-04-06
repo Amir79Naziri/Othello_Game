@@ -40,6 +40,7 @@ public abstract class Difficulty extends Game
             for (Coordinate key : sug.keySet ())
                 for (Coordinate end : sug.get (key)) {
                     mapOfEndToLength.put (end, findLength (end, getGameHandling ().findBegins (end)));
+                    // map of end to total distance from begins
                 }
         if (difficulty.equals ("Easy"))
             return findLessLength (mapOfEndToLength);
