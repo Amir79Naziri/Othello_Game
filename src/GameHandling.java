@@ -372,6 +372,7 @@ public class GameHandling
 
     /**
      * show map of game on console
+     * @param showTurn if true shows who is turn
      */
     public void showMap (boolean showTurn)
     {

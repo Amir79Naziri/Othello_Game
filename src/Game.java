@@ -105,6 +105,7 @@ public abstract class Game
 
     /**
      * play Game
+     * @throws InterruptedException for wasting time for machine choose
      */
     abstract public void playGame () throws InterruptedException;
 }
