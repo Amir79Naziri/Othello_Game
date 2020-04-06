@@ -8,16 +8,16 @@ import java.util.HashSet;
  * @author Amir Naziri
  * @version 1.0
  */
-public abstract class difficulty extends Game
+public abstract class Difficulty extends Game
 {
-    private String difficulty; // type of difficulty Easy or Hard
+    private final String difficulty; // type of difficulty Easy or Hard
 
 
     /**
      * creates a new difficulty instance
      * @param difficulty input difficulty Easy or Hard
      */
-    public difficulty (String difficulty)
+    public Difficulty (String difficulty)
     {
         super();
         this.difficulty = difficulty;

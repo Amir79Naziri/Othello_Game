@@ -4,7 +4,7 @@
  * @author Amir Naziri
  * @version 1.0
  */
-public class GameOnePlayer extends difficulty
+public class GameOnePlayer extends Difficulty
 {
 
     /**
